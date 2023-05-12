@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils.c                                            :+:      :+:    :+:   */
+/*   utils_1.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aet-tass <aet-tass@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/04 21:29:59 by aet-tass          #+#    #+#             */
-/*   Updated: 2023/05/09 22:06:39 by aet-tass         ###   ########.fr       */
+/*   Updated: 2023/05/10 22:46:58 by aet-tass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,6 @@ t_list	*ft_lstlast(t_list *lst)
 	return (courant);
 }
 
-
 void	ft_lstadd_back(t_list **lst, t_list *new)
 {
 	if (*lst != NULL)
@@ -41,35 +40,7 @@ void	ft_lstadd_front(t_list **lst, t_list *new)
 	*lst = new;
 }
 
-
-int	ft_atoi(const char *str)
-{
-	int	i;
-	int	sign;
-	int	res;
-
-	i = 0;
-	sign = 1;
-	res = 0;
-	while (str[i] == ' ' || str[i] == '\n' || str[i] == '\v' || str[i] == '\f'
-		|| str[i] == '\t' || str[i] == '\r')
-		i++;
-	if (str[i] == '+' || str[i] == '-')
-	{
-		if (str[i] == '-')
-			sign *= -1;
-		i++;
-	}
-	while (str[i] != '\0' && str[i] >= '0' && str[i] <= '9')
-	{
-		res *= 10;
-		res = (res + str[i]) - '0';
-		i++;
-	}
-	return (res * sign);
-}
-
-t_list	*ft_lstnew(void *content)
+t_list	*ft_lstnew(int content)
 {
 	t_list	*node;
 
@@ -80,7 +51,7 @@ t_list	*ft_lstnew(void *content)
 	(*node).next = NULL;
 	return (node);
 }
-void	ft_lstclear(t_list **lst, void (*del)(void *))
+void	ft_lstclear(t_list **lst, void (*del)(int))
 {
 	t_list	*tmp;
 
@@ -111,8 +82,18 @@ void lst_print(t_list *lst)
 {
     while (lst)
     {
-        printf("%d ", *(int *)(lst->content));
+        printf("%d ", (lst->content));
         lst = lst->next;
     }
 }
 
+void	ft_lstdelone(t_list *lst, void (*del)(int ))
+{
+	if (!lst)
+		return ;
+	if (del)
+	{
+		del(lst->content);
+		free(lst);
+	}
+}

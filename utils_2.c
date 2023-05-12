@@ -6,7 +6,7 @@
 /*   By: aet-tass <aet-tass@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/09 22:00:33 by aet-tass          #+#    #+#             */
-/*   Updated: 2023/05/09 22:01:44 by aet-tass         ###   ########.fr       */
+/*   Updated: 2023/05/10 22:50:39 by aet-tass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int	ft_atoi(const char *str)
 {
 	int	i;
 	int	sign;
-	int	res;
+	long	res;
 
 	i = 0;
 	sign = 1;
@@ -35,6 +35,11 @@ int	ft_atoi(const char *str)
 		res *= 10;
 		res = (res + str[i]) - '0';
 		i++;
+	}
+	if (res < INT_MIN || res > INT_MAX)
+	{
+		ft_printf("Error\n");
+		exit (1);
 	}
 	return (res * sign);
 }
