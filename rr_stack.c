@@ -29,7 +29,7 @@ void	rra(t_list **lst, int check)
 		last->next = *lst;
 		*lst = last;
 		if (check)
-			ft_printf("rra\n");
+			printf("rra\n");
 	}
 }
 
@@ -50,7 +50,7 @@ void	rrb(t_list **lst, int check)
 		last->next = *lst;
 		*lst = last;
 		if (check)
-			ft_printf("rrb\n");
+			printf("rrb\n");
 	}
 }
 
@@ -59,5 +59,5 @@ void	rrr(t_list **lst_a, t_list **lst_b, int check)
 	rra(lst_a, 0);
 	rrb(lst_b, 0);
 	if (check)
-		ft_printf("rrr\n");
+		printf("rrr\n");
 }

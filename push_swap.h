@@ -17,6 +17,7 @@
 # include <stdlib.h>
 # include <limits.h>
 # include <ctype.h>
+#include <stdbool.h>
 
 typedef struct s_list
 {
@@ -39,10 +40,8 @@ void    sa(t_list **lst, int	check);
 void    sb(t_list **lst ,int check);
 void    ss(t_list **lst_a, t_list **lst_b, int	check);
 void	ft_lstdelone(t_list *lst, void (*del)(void *));
-int    check_duplicates(int    *arr, int size);
-
-
-
+int		check_duplicates(t_list *head);
+int		is_sorted(t_list *head);
 
 
 #endif

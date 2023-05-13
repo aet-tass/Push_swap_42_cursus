@@ -43,7 +43,7 @@ void	rb(t_list **lst, int check)
 		temp->next = NULL;
 	}
 	if (check)
-		ft_printf("rb\n");
+		printf("rb\n");
 }
 
 void	rr(t_list **lst_a, t_list **lst_b, int check)
@@ -51,6 +51,6 @@ void	rr(t_list **lst_a, t_list **lst_b, int check)
 	ra(lst_a, 0);
 	rb(lst_b, 0);
 	if (check)
-		ft_printf("rr\n");
+		printf("rr\n");
 }
 

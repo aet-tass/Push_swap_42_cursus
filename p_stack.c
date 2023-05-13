@@ -23,7 +23,7 @@ void    pa(t_list **lst_a, t_list **lst_b, int check)
     *lst_a = *lst_b;
     *lst_b = tmp;
     if (check)
-        ft_printf("pa\n");
+        printf("pa\n");
 }
 
 void    pb(t_list **lst_a, t_list **lst_b, int check)
@@ -37,5 +37,5 @@ void    pb(t_list **lst_a, t_list **lst_b, int check)
     tmp->next = *lst_b;
     *lst_b = tmp;
     if (check == 1)
-        ft_printf("pb\n");
+        printf("pb\n");
 }

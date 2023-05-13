@@ -16,42 +16,48 @@ int     main(int argc, char **argv)
 {
     t_list  *lst_a;
     t_list  *lst_b;
+    int     i;
 
 
     lst_a = NULL;
     lst_b = NULL;
-
+    i = 1;
+    (void)lst_b;
     if (argc >= 2)
     {
-		for (int i = 1; i < argc; i++)
+        while (i < argc)
         {
-            ft_lstadd_back(&lst_a, ft_lstnew((void *)(intptr_t)ft_atoi(argv[i])));
+            int num = atoi(argv[i]);
+            void *num_ptr = (void *)malloc(sizeof(int));
+            *(int *)num_ptr = num;
+            ft_lstadd_back(&lst_a, ft_lstnew(num_ptr));
+            i++;
         }
-
-    //    if (check_duplicates(&lst_a->content, ft_lstsize(lst_a)) == 1)
-    //     {
-    //         ft_printf("Error");
-    //         return (1);
-    //     }
+        if (check_duplicates(lst_a) == 1)
+        {
+            printf("Error\n");
+            return (1);
+        }
+        else if (is_sorted(lst_a) == 1)
+            return (1);
 
         //sa(&lst_a, 1);
         //sb(&lst_b, 1);
         //ss(&lst_a, &lst_b, 1);
 
         // Print out resulting lists
-        ft_printf("List A: ");
+        printf("List A: ");
         lst_print(lst_a);
-        ft_printf("\n");
-
-        //ft_printf("List B: ");
+        printf("\n");
+        //ft_printf("List B: ")
         //lst_print(lst_b);
         //ft_printf("\n");
     }
     else
-        ft_printf("Error");
+        printf("Error\n");
 
     // Free memory and exit program
     //ft_lstclear(&lst_a);
     //ft_lstclear(&lst_b);
-    return 0;
+    return (0);
 }

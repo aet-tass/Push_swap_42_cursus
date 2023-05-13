@@ -13,23 +13,46 @@
 #include "push_swap.h"
 
 // Check if a number is duplicated, if so print error and exit
-int    check_duplicates(int    *arr, int size)
-{
-    int    i;
-    int    j;
 
-    i = 0;
-    while (i < size)
+int check_duplicates(t_list *head)
+{
+    t_list *current;
+    t_list *runner;
+    int current_val;
+    int runner_val;
+    
+    current = head;
+    while (current)
     {
-        j = i + 1;
-        while (j < size)
+        current_val = *(int *)current->content;
+        runner = current->next;
+        while (runner)
         {
-            if (arr[i] == arr[j])
+            runner_val = *(int *)runner->content;
+            if (current_val == runner_val)
                 return (1);
-            j++;
+            runner = runner->next;
         }
-        i++;
+        current = current->next;
     }
     return (0);
 }
 
+int is_sorted(t_list *head) 
+{
+    t_list  *current;
+    int prev_val;
+    int curr_val;
+    
+    current = head;
+    prev_val = 0;
+    while (current)
+    {
+        curr_val = *((int *)current->content);
+        if (curr_val < prev_val)
+            return (0);
+        prev_val = curr_val;
+        current = current->next;
+    }
+    return (1);
+}

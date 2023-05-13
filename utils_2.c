@@ -20,7 +20,7 @@ int	ft_check_duplicates(int num, int *arr, int size)
     {
         if (arr[i] == num)
         {
-            ft_printf("Error");
+            printf("Error");
             return (1);
         }
     }
@@ -61,7 +61,7 @@ int	ft_atoi(const char *str)
     size++;
 	if (res < INT_MIN || res > INT_MAX)
 	{
-		ft_printf("Error\n");
+		printf("Error\n");
 		exit (1);
 	}
 	return (res * sign);

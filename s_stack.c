@@ -24,13 +24,13 @@ void    sa(t_list **lst, int	check)
         *lst = tmp;
     }
 	if (check != 0)
-		ft_printf("sa\n");
+		printf("sa\n");
 }
 void    sb(t_list **lst ,int check)
 {
     sa(lst, 0);
 	if (check != 0)
-		ft_printf("sb\n");
+		printf("sb\n");
 }
 
 void    ss(t_list **lst_a, t_list **lst_b, int	check)
@@ -38,6 +38,6 @@ void    ss(t_list **lst_a, t_list **lst_b, int	check)
     sa(lst_a, 0);
     sa(lst_b, 0);
 	if (check != 0)
-		ft_printf("ss");
+		printf("ss");
 }
 
