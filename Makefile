@@ -4,8 +4,7 @@ CC = gcc
 
 RM = rm -rf
 
-SRC = push_swap.c check_arg.c first_rules.c  utils_1.c utils_2.c rules_2.c utils/libftprintf.a
-
+SRC = push_swap.c check_arg.c s_stack.c  utils_1.c utils_2.c p_stack.c  utils/libftprintf.a
 
 OBJ = ${SRC:.c=.o}
 

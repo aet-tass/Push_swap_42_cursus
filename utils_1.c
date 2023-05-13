@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils_1.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aet-tass <aet-tass@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: aet-tass <aet-tass@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/04 21:29:59 by aet-tass          #+#    #+#             */
-/*   Updated: 2023/05/10 22:46:58 by aet-tass         ###   ########.fr       */
+/*   Updated: 2023/05/13 01:27:56 by aet-tass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ void	ft_lstadd_front(t_list **lst, t_list *new)
 	*lst = new;
 }
 
-t_list	*ft_lstnew(int content)
+t_list	*ft_lstnew(void *content)
 {
 	t_list	*node;
 
@@ -51,7 +51,7 @@ t_list	*ft_lstnew(int content)
 	(*node).next = NULL;
 	return (node);
 }
-void	ft_lstclear(t_list **lst, void (*del)(int))
+void	ft_lstclear(t_list **lst, void (*del)(void *))
 {
 	t_list	*tmp;
 
@@ -82,12 +82,12 @@ void lst_print(t_list *lst)
 {
     while (lst)
     {
-        printf("%d ", (lst->content));
+        printf("%d ", *(int *)(lst->content));
         lst = lst->next;
     }
 }
 
-void	ft_lstdelone(t_list *lst, void (*del)(int ))
+void	ft_lstdelone(t_list *lst, void (*del)(void *))
 {
 	if (!lst)
 		return ;
