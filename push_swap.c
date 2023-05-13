@@ -6,7 +6,7 @@
 /*   By: aet-tass <aet-tass@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/09 22:05:36 by aet-tass          #+#    #+#             */
-/*   Updated: 2023/05/13 01:28:46 by aet-tass         ###   ########.fr       */
+/*   Updated: 2023/05/14 00:32:54 by aet-tass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,21 +40,26 @@ int     main(int argc, char **argv)
         }
         else if (is_sorted(lst_a) == 1)
             return (1);
+         if (ft_lstsize(lst_a) <= 3)
+			 sort_small(&lst_a);
+		 else if (ft_lstsize(lst_a) <= 5)
+            sort_five(&lst_a, &lst_b);
+
 
         //sa(&lst_a, 1);
         //sb(&lst_b, 1);
         //ss(&lst_a, &lst_b, 1);
 
         // Print out resulting lists
-        printf("List A: ");
-        lst_print(lst_a);
-        printf("\n");
+        //printf("List A: ");
+       // lst_print(lst_a);
+       // printf("\n");
         //ft_printf("List B: ")
         //lst_print(lst_b);
         //ft_printf("\n");
     }
     else
-        printf("Error\n");
+        return (1);
 
     // Free memory and exit program
     //ft_lstclear(&lst_a);

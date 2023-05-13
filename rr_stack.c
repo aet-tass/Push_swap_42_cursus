@@ -6,11 +6,11 @@
 /*   By: aet-tass <aet-tass@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/13 00:06:52 by aet-tass          #+#    #+#             */
-/*   Updated: 2023/05/13 00:08:44 by aet-tass         ###   ########.fr       */
+/*   Updated: 2023/05/14 00:25:17 by aet-tass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.c"
+#include "push_swap.h"
 
 void	rra(t_list **lst, int check)
 {

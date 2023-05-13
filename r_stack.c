@@ -6,7 +6,7 @@
 /*   By: aet-tass <aet-tass@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/13 00:04:36 by aet-tass          #+#    #+#             */
-/*   Updated: 2023/05/13 00:05:58 by aet-tass         ###   ########.fr       */
+/*   Updated: 2023/05/13 22:17:12 by aet-tass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,4 +53,3 @@ void	rr(t_list **lst_a, t_list **lst_b, int check)
 	if (check)
 		printf("rr\n");
 }
-
