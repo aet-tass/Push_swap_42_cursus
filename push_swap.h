@@ -6,7 +6,7 @@
 /*   By: aet-tass <aet-tass@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/07 19:32:02 by aet-tass          #+#    #+#             */
-/*   Updated: 2023/05/14 00:34:06 by aet-tass         ###   ########.fr       */
+/*   Updated: 2023/05/14 19:01:41 by aet-tass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,6 @@ void	rrb(t_list **lst, int check);
 void	rrr(t_list **lst_a, t_list **lst_b, int check);
 void sort_small(t_list **lst);
 void	sort_five(t_list **lst_a, t_list **lst_b);
-
 
 
 #endif

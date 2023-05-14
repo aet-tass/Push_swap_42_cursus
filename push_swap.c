@@ -6,7 +6,7 @@
 /*   By: aet-tass <aet-tass@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/09 22:05:36 by aet-tass          #+#    #+#             */
-/*   Updated: 2023/05/14 00:32:54 by aet-tass         ###   ########.fr       */
+/*   Updated: 2023/05/14 18:07:43 by aet-tass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,9 +51,9 @@ int     main(int argc, char **argv)
         //ss(&lst_a, &lst_b, 1);
 
         // Print out resulting lists
-        //printf("List A: ");
-       // lst_print(lst_a);
-       // printf("\n");
+        printf("List A: ");
+       lst_print(lst_a);
+       printf("\n");
         //ft_printf("List B: ")
         //lst_print(lst_b);
         //ft_printf("\n");
