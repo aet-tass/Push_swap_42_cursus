@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   push_swap.c          ########    ## #     ##    ##             ## ##     */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aet-tass <aet-tass@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/09 22:05:36 by aet-tass          #+#    #+#             */
-/*   Updated: 2023/05/14 18:07:43 by aet-tass         ###   ########.fr       */
+/*   Updated: 2023/   ########    ##      # #    ##    ##  ##           ##    */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,8 +42,14 @@ int     main(int argc, char **argv)
             return (1);
          if (ft_lstsize(lst_a) <= 3)
 			 sort_small(&lst_a);
-		 else if (ft_lstsize(lst_a) <= 5)
+		 
+	 else if (ft_lstsize(lst_a) <= 5)
             sort_five(&lst_a, &lst_b);
+	 else if (ft_lstsize(lst_a) <= 100)
+			sort_range(&lst_a, &lst_b, 19);
+	else if (ft_lstsize(lst_a) <= 500)
+			sort_range(&lst_a, &lst_b, 35);
+
 
 
         //sa(&lst_a, 1);

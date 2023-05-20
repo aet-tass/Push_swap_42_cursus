@@ -5,7 +5,7 @@ CC = gcc
 RM = rm -rf
 
 SRC = push_swap.c check_arg.c s_stack.c  utils_1.c utils_2.c\
- p_stack.c sort_small_stack.c rr_stack.c r_stack.c sort_five.c 
+ p_stack.c sort_small_stack.c rr_stack.c r_stack.c sort_five.c sort_range.c  
 
 OBJ = ${SRC:.c=.o}
 

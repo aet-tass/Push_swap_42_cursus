@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rr_stack.c                                         :+:      :+:    :+:   */
+/*   rr_stack.c           ########    ## #     ##    ##             ## ##     */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aet-tass <aet-tass@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/13 00:06:52 by aet-tass          #+#    #+#             */
-/*   Updated: 2023/05/14 00:25:17 by aet-tass         ###   ########.fr       */
+/*   Updated: 2023/   ########    ##      # #    ##    ##  ##           ##    */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ void	rra(t_list **lst, int check)
 		prev_last->next = NULL;
 		last->next = *lst;
 		*lst = last;
-		if (check)
+		if (check == 1)
 			printf("rra\n");
 	}
 }
@@ -49,7 +49,7 @@ void	rrb(t_list **lst, int check)
 		prev_last->next = NULL;
 		last->next = *lst;
 		*lst = last;
-		if (check)
+		if (check == 1)
 			printf("rrb\n");
 	}
 }
@@ -58,6 +58,6 @@ void	rrr(t_list **lst_a, t_list **lst_b, int check)
 {
 	rra(lst_a, 0);
 	rrb(lst_b, 0);
-	if (check)
+	if (check == 1)
 		printf("rrr\n");
 }
