@@ -10,14 +10,23 @@ int find_index(int *arr, int size, int num)
             return index;
         index++;
     }
+    return (-1);
+}
+int find_index_stack(t_list *lst_b, int num)
+{
+    int index = 0;
 
-    // Element not found in the list
-    return -1;
+    while (*(int *)lst_b->content != num)
+    {
+        index++;
+        lst_b = lst_b->next;
+    }
+    return index;
 }
 
 int find_max_value(t_list *lst)
 {
-    int max = *(int *)(lst->content); // Assuming the content of each node is of type `int`
+    int max = *(int *)(lst->content);
     lst = lst->next;
 
     while (lst)
@@ -33,22 +42,22 @@ int find_max_value(t_list *lst)
 
 void sort_final_range(t_list **lst_a, t_list **lst_b, int *sorted_arr, int size)
 {
-    while (size--)
+    while (*lst_b)
     {
-        int max = find_max_value(*lst_b);
-        int max_index = find_index(sorted_arr, size, max);
-        if (max_index == 1)
+        int max;
+        int max_index;
+        int num = *(int *)(*lst_b)->content;
+        while (ft_lstsize(*lst_b))
         {
+            max = find_max_value(*lst_b);
+            max_index = find_index_stack(*lst_b, max);
+            if (max_index <= ft_lstsize(*lst_b) / 2)
+                while (find_index_stack(*lst_b, max) != 0)
+                    rb(lst_b, 1);
+            else
+                while (find_index_stack(*lst_b, max) != 0)
+                    rrb(lst_b, 1);
             pa(lst_a, lst_b, 1);
-            size--;
-        }
-        else if (max_index <= size / 2)
-        {
-            rb(lst_b, 1);
-        }
-        else
-        {
-            rrb(lst_b, 1);
         }
     }
 }
@@ -62,31 +71,24 @@ void sort_range(t_list **lst_a, t_list **lst_b, int end_range, int *soted_arr, i
     {
         t_list *top_node = *lst_a;
         int top = *(int *)top_node->content;
-        // printf("top: [%d]\n", top);
         int index = find_index(soted_arr, size, top);
-        if (index <= start && index <= end)
+        if (index >= start && index <= end)
+        {
+            pb(lst_a, lst_b, 1);
+            start++;
+            end++;
+        }
+        else if (index > end)
+        {
+            ra(lst_a, 1);
+        }
+        else if (index < start)
         {
             pb(lst_a, lst_b, 1);
             rb(lst_b, 1);
             start++;
             end++;
         }
-        else if (index >= start && index <= end)
-        {
-            pb(lst_a, lst_b, 0);
-            start++;
-            end++;
-        }
-        else
-            ra(lst_a, 1);
     }
-    // t_list *node = *lst_b;
-    // while (node)
-    // {
-    //     int n = *(int *)node->content;
-    //     printf("b: %d\n", n);
-    //     node = node->next;
-    // }
-    // printf("\n");
     sort_final_range(lst_a, lst_b, soted_arr, size);
 }

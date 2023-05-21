@@ -6,13 +6,11 @@
 /*   By: aet-tass <aet-tass@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/09 19:58:01 by aet-tass          #+#    #+#             */
-/*   Updated: 2023/05/13 01:17:53 by aet-tass         ###   ########.fr       */
+/*   Updated: 2023/05/21 19:40:28 by aet-tass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-// Check if a number is duplicated, if so print error and exit
 
 int check_duplicates(t_list *head)
 {
@@ -20,7 +18,7 @@ int check_duplicates(t_list *head)
     t_list *runner;
     int current_val;
     int runner_val;
-    
+
     current = head;
     while (current)
     {
@@ -38,12 +36,12 @@ int check_duplicates(t_list *head)
     return (0);
 }
 
-int is_sorted(t_list *head) 
+int is_sorted(t_list *head)
 {
     t_list  *current;
     int prev_val;
     int curr_val;
-    
+
     current = head;
     prev_val = 0;
     while (current)
