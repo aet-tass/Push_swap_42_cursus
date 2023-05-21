@@ -6,7 +6,7 @@
 /*   By: aet-tass <aet-tass@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/09 22:05:36 by aet-tass          #+#    #+#             */
-/*   Updated: 2023/05/21 20:04:49 by aet-tass         ###   ########.fr       */
+/*   Updated: 2023/05/22 00:39:39 by aet-tass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,25 +53,31 @@ int     main(int argc, char **argv)
     t_list  *lst_a;
     t_list  *lst_b;
     int     *sorted_arr;
+    char    *str;
+    char    **spt;
     int     i;
 
 
     lst_a = NULL;
     lst_b = NULL;
     i = 1;
-    (void)lst_b;
+    str = ft_strdup("");
     if (argc >= 2)
     {
         while (i < argc)
         {
-            int num = ft_atoi(argv[i]);
+            str = ft_strjoin(str, argv[i]);
+            str = ft_strjoin(str, " ");
+            i++;
+        }
+        spt = ft_split(str, ' ');
+        i = 0;
+        while (spt[i])
+        {
+            int num = ft_atoi(spt[i]);
             void *num_ptr = (void *)malloc(sizeof(int));
             *(int *)num_ptr = num;
             ft_lstadd_back(&lst_a, ft_lstnew(num_ptr));
-            // char *str;
-            // str = ft_strdup("");
-            // argv[i] = ft_strjoin(argv[1], str);
-            // argv = ft_split(argv[1], ' ');
             i++;
         }
         if (check_duplicates(lst_a) == 1)
@@ -83,20 +89,22 @@ int     main(int argc, char **argv)
             return (1);
         sorted_arr = (int *)malloc(sizeof(int) * ft_lstsize(lst_a));
         for (int i = 0; i < ft_lstsize(lst_a); i++)
-            sorted_arr[i] = atoi(argv[i + 1]);
+            sorted_arr[i] = ft_atoi(argv[i + 1]);
         sorted_arr = sort_arr(sorted_arr, ft_lstsize(lst_a));
         if (ft_lstsize(lst_a) <= 3)
             sort_small(&lst_a);
         else if (ft_lstsize(lst_a) <= 5)
+        {
                 sort_five(&lst_a, &lst_b);
+        }
         else if (ft_lstsize(lst_a) <= 100)
-                sort_range(&lst_a, &lst_b, 19, sorted_arr, ft_lstsize(lst_a));
+                sort_range(&lst_a, &lst_b, 17, sorted_arr, ft_lstsize(lst_a));
         else if (ft_lstsize(lst_a) <= 500)
                 sort_range(&lst_a, &lst_b, 35, sorted_arr, ft_lstsize(lst_a));
     }
     else
         return (1);
-
+    // lst_my_print(lst_a);
 
     ft_lstclear(&lst_a);
     ft_lstclear(&lst_b);

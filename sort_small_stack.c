@@ -1,21 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sort_small_stack.c   ########    ## #     ##    ##             ## ##     */
+/*   sort_small_stack.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aet-tass <aet-tass@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/13 22:15:26 by aet-tass          #+#    #+#             */
-/*   Updated: 2023/05/14 19:03:04 by aet-tass         ###   ########.fr       */
+/*   Updated: 2023/05/21 23:41:46 by aet-tass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 void sort_small(t_list **lst)
 {
-    if (ft_lstsize(*lst) == 2 && *(int *)((*lst)->content) > *(int *)((*lst)->next->content))
-        sa(lst, 1);
-    else if (ft_lstsize(*lst) == 3)
+    // if (ft_lstsize(*lst) == 2 && *(int *)((*lst)->content) > *(int *)((*lst)->next->content))
+    //     sa(lst, 1);
+     if (ft_lstsize(*lst) == 3)
     {
         t_list *node_a = *lst;
         t_list *node_b = node_a->next;

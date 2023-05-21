@@ -6,15 +6,13 @@
 /*   By: aet-tass <aet-tass@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/29 19:54:19 by aet-tass          #+#    #+#             */
-/*   Updated: 2023/05/21 18:13:41 by aet-tass         ###   ########.fr       */
+/*   Updated: 2023/05/22 00:40:56 by aet-tass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
 
-# include <fcntl.h>
-# include <stdio.h>
 # include <stdlib.h>
 # include <unistd.h>
 # include <limits.h>

@@ -6,7 +6,7 @@
 /*   By: aet-tass <aet-tass@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/12 20:24:02 by aet-tass          #+#    #+#             */
-/*   Updated: 2023/05/21 17:28:02 by aet-tass         ###   ########.fr       */
+/*   Updated: 2023/05/21 23:33:36 by aet-tass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void    pa(t_list **lst_a, t_list **lst_b, int check)
     *lst_a = tmp;
 
     if (check == 1)
-        printf("pa\n");
+        write(1, "pa\n", 3);
 }
 
 void    pb(t_list **lst_a, t_list **lst_b, int check)
@@ -39,5 +39,5 @@ void    pb(t_list **lst_a, t_list **lst_b, int check)
     tmp->next = *lst_b;
     *lst_b = tmp;
     if (check == 1)
-        printf("pb\n");
+        write(1, "pb\n", 3);
 }

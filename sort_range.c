@@ -36,17 +36,15 @@ int find_max_value(t_list *lst)
             max = value;
         lst = lst->next;
     }
-
-    return max;
+    return (max);
 }
 
-void sort_final_range(t_list **lst_a, t_list **lst_b, int *sorted_arr, int size)
+void sort_final_range(t_list **lst_a, t_list **lst_b)
 {
     while (*lst_b)
     {
         int max;
         int max_index;
-        int num = *(int *)(*lst_b)->content;
         while (ft_lstsize(*lst_b))
         {
             max = find_max_value(*lst_b);
@@ -66,7 +64,7 @@ void sort_range(t_list **lst_a, t_list **lst_b, int end_range, int *soted_arr, i
 {
     int start = 0;
     int end = end_range;
-    int s = size;
+
     while (*lst_a)
     {
         t_list *top_node = *lst_a;
@@ -90,5 +88,5 @@ void sort_range(t_list **lst_a, t_list **lst_b, int end_range, int *soted_arr, i
             end++;
         }
     }
-    sort_final_range(lst_a, lst_b, soted_arr, size);
+    sort_final_range(lst_a, lst_b);
 }

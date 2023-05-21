@@ -6,7 +6,7 @@
 /*   By: aet-tass <aet-tass@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/30 20:00:00 by aet-tass          #+#    #+#             */
-/*   Updated: 2023/05/21 19:36:04 by aet-tass         ###   ########.fr       */
+/*   Updated: 2023/05/22 00:35:42 by aet-tass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,11 @@ int	ft_atoi(const char *str)
 	int	sign;
 	int	res;
 
+	if (ft_strlen(str) == 1 && (str[0] == '+' || str[0] == '-'))
+	{
+		ft_putstr_fd("Error\n", 2);
+		exit (1);
+	}
 	i = 0;
 	sign = 1;
 	res = 0;
@@ -30,16 +35,22 @@ int	ft_atoi(const char *str)
 			sign *= -1;
 		i++;
 	}
-	while (str[i] != '\0' && str[i] >= '0' && str[i] <= '9')
+	while (str[i])
 	{
+		if (!ft_isdigit(str[i]))
+		{
+			ft_putstr_fd("Error\n", 2);
+			exit (1);
+		}
 		res *= 10;
 		res = (res + str[i]) - '0';
 		i++;
 	}
+	res = res * sign;
 	if (res < INT_MIN || res > INT_MAX)
 	{
 		ft_putstr_fd("Error\n", 2);
 		exit (1);
 	}
-	return (res * sign);
+	return (res);
 }

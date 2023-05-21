@@ -6,7 +6,7 @@
 /*   By: aet-tass <aet-tass@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/07 19:32:02 by aet-tass          #+#    #+#             */
-/*   Updated: 2023/05/21 18:16:08 by aet-tass         ###   ########.fr       */
+/*   Updated: 2023/05/22 00:40:07 by aet-tass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 
 # include "libft/libft.h"
 
-int	ft_printf(const char *, ...);
 int is_integer(char *str);
 int check_args(int argc, char **argv);
 void lst_print(t_list *lst);
