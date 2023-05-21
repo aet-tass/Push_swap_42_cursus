@@ -1,4 +1,4 @@
-CFLAGS = -fsanitize=address -g
+CFLAGS = 
 
 CC = gcc
 

@@ -14,15 +14,17 @@
 
 void    pa(t_list **lst_a, t_list **lst_b, int check)
 {
-    if (*lst_b == NULL)
-        return ;
     t_list *tmp;
 
-    tmp = (*lst_b)->next;
-    (*lst_b)->next = *lst_a;
-    *lst_a = *lst_b;
-    *lst_b = tmp;
-    if (check)
+    if (*lst_b == NULL)
+        return;
+    
+    tmp = *lst_b;
+    *lst_b = (*lst_b)->next;
+    tmp->next = *lst_a;
+    *lst_a = tmp;
+    
+    if (check == 1)
         printf("pa\n");
 }
 
