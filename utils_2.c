@@ -6,27 +6,12 @@
 /*   By: aet-tass <aet-tass@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/09 22:00:33 by aet-tass          #+#    #+#             */
-/*   Updated: 2023/05/13 00:19:26 by aet-tass         ###   ########.fr       */
+/*   Updated: 2023/05/21 01:11:11 by aet-tass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 
 #include "push_swap.h"
-
-int	ft_check_duplicates(int num, int *arr, int size)
-{
-    int i;
-    for (i = 0; i < size; i++)
-    {
-        if (arr[i] == num)
-        {
-            printf("Error");
-            return (1);
-        }
-    }
-    arr[size] = num;
-    return (0);
-}
 
 int	ft_atoi(const char *str)
 {
@@ -54,10 +39,6 @@ int	ft_atoi(const char *str)
 		res = (res + str[i]) - '0';
 		i++;
 	}
-	 if (ft_check_duplicates(res, nums, size))
-    {
-        exit(1);
-    }
     size++;
 	if (res < INT_MIN || res > INT_MAX)
 	{

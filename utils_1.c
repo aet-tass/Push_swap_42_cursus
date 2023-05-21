@@ -6,23 +6,23 @@
 /*   By: aet-tass <aet-tass@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/04 21:29:59 by aet-tass          #+#    #+#             */
-/*   Updated: 2023/05/13 01:27:56 by aet-tass         ###   ########.fr       */
+/*   Updated: 2023/05/21 01:06:59 by aet-tass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_list	*ft_lstlast(t_list *lst)
-{
-	t_list	*courant;
+	t_list	*ft_lstlast(t_list *lst)
+	{
+		t_list	*courant;
 
-	if (!lst)
-		return (NULL);
-	courant = lst;
-	while (courant->next)
-		courant = courant->next;
-	return (courant);
-}
+		if (!lst)
+			return (NULL);
+		courant = lst;
+		while (courant->next)
+			courant = courant->next;
+		return (courant);
+	}
 
 void	ft_lstadd_back(t_list **lst, t_list *new)
 {
