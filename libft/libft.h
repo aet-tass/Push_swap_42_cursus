@@ -13,9 +13,9 @@
 #ifndef LIBFT_H
 # define LIBFT_H
 
+# include <limits.h>
 # include <stdlib.h>
 # include <unistd.h>
-# include <limits.h>
 
 typedef struct s_list
 {
@@ -39,8 +39,9 @@ int					ft_atoi(const char *str);
 void				*ft_calloc(size_t count, size_t size);
 void				*ft_memmove(void *dst, const void *src, size_t len);
 char				*ft_strrchr(const char *str, int c);
-char				*ft_strnstr(const char *haystack,
-						const char *needle, size_t len);
+char	*ft_strnstr(const char *haystack,
+					const char *needle,
+					size_t len);
 size_t				ft_strlcpy(char *dst, const char *src, size_t dstsize);
 int					ft_memcmp(const void *s1, const void *s2, size_t n);
 char				*ft_strdup(const char *s1);

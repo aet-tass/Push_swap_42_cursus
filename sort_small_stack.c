@@ -11,38 +11,42 @@
 /* ************************************************************************** */
 
 #include "push_swap.h"
-void sort_small(t_list **lst)
+
+void	sort_small(t_list **lst)
 {
-    // if (ft_lstsize(*lst) == 2 && *(int *)((*lst)->content) > *(int *)((*lst)->next->content))
-    //     sa(lst, 1);
-     if (ft_lstsize(*lst) == 3)
-    {
-        t_list *node_a = *lst;
-        t_list *node_b = node_a->next;
-        t_list *node_c = node_b->next;
+	t_list	*node_a;
+	t_list	*node_b;
+	t_list	*node_c;
+	int		a;
+	int		b;
+	int		c;
 
-        int a = *(int *)(node_a->content);
-        int b = *(int *)(node_b->content);
-        int c = *(int *)(node_c->content);
-
-        if (a > b && b < c && a < c)
-            sa(lst, 1);
-        else if (a > b && b > c && a > c)
-        {
-            sa(lst, 1);
-            rra(lst, 1);
-        }
-        else if (a > b && b < c && a > c)
-            ra(lst, 1);
-        else if (a < b && b > c && a < c)
-        {
-            sa(lst, 1);
-            ra(lst, 1);
-        }
-        else if (a < b && b > c && a > c)
-            rra(lst, 1);
-    }
+	// if (ft_lstsize(*lst) == 2
+			&& *(int *)((*lst)->content) > *(int *)((*lst)->next->content))
+	//     sa(lst, 1);
+	if (ft_lstsize(*lst) == 3)
+	{
+		node_a = *lst;
+		node_b = node_a->next;
+		node_c = node_b->next;
+		a = *(int *)(node_a->content);
+		b = *(int *)(node_b->content);
+		c = *(int *)(node_c->content);
+		if (a > b && b < c && a < c)
+			sa(lst, 1);
+		else if (a > b && b > c && a > c)
+		{
+			sa(lst, 1);
+			rra(lst, 1);
+		}
+		else if (a > b && b < c && a > c)
+			ra(lst, 1);
+		else if (a < b && b > c && a < c)
+		{
+			sa(lst, 1);
+			ra(lst, 1);
+		}
+		else if (a < b && b > c && a > c)
+			rra(lst, 1);
+	}
 }
-
-
-

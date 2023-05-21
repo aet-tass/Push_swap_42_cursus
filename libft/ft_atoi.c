@@ -21,7 +21,7 @@ int	ft_atoi(const char *str)
 	if (ft_strlen(str) == 1 && (str[0] == '+' || str[0] == '-'))
 	{
 		ft_putstr_fd("Error\n", 2);
-		exit (1);
+		exit(1);
 	}
 	i = 0;
 	sign = 1;
@@ -40,7 +40,7 @@ int	ft_atoi(const char *str)
 		if (!ft_isdigit(str[i]))
 		{
 			ft_putstr_fd("Error\n", 2);
-			exit (1);
+			exit(1);
 		}
 		res *= 10;
 		res = (res + str[i]) - '0';
@@ -50,7 +50,7 @@ int	ft_atoi(const char *str)
 	if (res < INT_MIN || res > INT_MAX)
 	{
 		ft_putstr_fd("Error\n", 2);
-		exit (1);
+		exit(1);
 	}
 	return (res);
 }

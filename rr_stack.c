@@ -61,4 +61,3 @@ void	rrr(t_list **lst_a, t_list **lst_b, int check)
 	if (check == 1)
 		write(1, "rrr\n", 4);
 }
-

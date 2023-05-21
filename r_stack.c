@@ -42,7 +42,7 @@ void	rb(t_list **lst, int check)
 		last->next = temp;
 		temp->next = NULL;
 		if (check == 1)
-			write(1, "rb\n",3);
+			write(1, "rb\n", 3);
 	}
 }
 
@@ -51,5 +51,5 @@ void	rr(t_list **lst_a, t_list **lst_b, int check)
 	ra(lst_a, 0);
 	rb(lst_b, 0);
 	if (check == 1)
-		write(1, "rr\n",3);
+		write(1, "rr\n", 3);
 }

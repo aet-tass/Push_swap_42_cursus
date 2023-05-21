@@ -15,25 +15,24 @@
 
 # include "libft/libft.h"
 
-int is_integer(char *str);
-int check_args(int argc, char **argv);
-void lst_print(t_list *lst);
-void    sa(t_list **lst, int	check);
-void    sb(t_list **lst ,int check);
-void    ss(t_list **lst_a, t_list **lst_b, int	check);
+int		is_integer(char *str);
+int		check_args(int argc, char **argv);
+void	lst_print(t_list *lst);
+void	sa(t_list **lst, int check);
+void	sb(t_list **lst, int check);
+void	ss(t_list **lst_a, t_list **lst_b, int check);
 int		check_duplicates(t_list *head);
 int		is_sorted(t_list *head);
 void	ra(t_list **lst, int check);
 void	rb(t_list **lst, int check);
 void	rr(t_list **lst_a, t_list **lst_b, int check);
-void    pa(t_list **lst_a, t_list **lst_b, int check);
-void    pb(t_list **lst_a, t_list **lst_b, int check);
+void	pa(t_list **lst_a, t_list **lst_b, int check);
+void	pb(t_list **lst_a, t_list **lst_b, int check);
 void	rra(t_list **lst, int check);
 void	rrb(t_list **lst, int check);
 void	rrr(t_list **lst_a, t_list **lst_b, int check);
-void sort_small(t_list **lst);
+void	sort_small(t_list **lst);
 void	sort_five(t_list **lst_a, t_list **lst_b);
 void	sort_range(t_list **lst_a, t_list **lst_b, int end_range, int *, int);
-
 
 #endif
