@@ -1,43 +1,50 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   s_stack.c                                          :+:      :+:    :+:   */
+/*   utils_1.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aet-tass <aet-tass@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/09 21:30:50 by aet-tass          #+#    #+#             */
-/*   Updated: 2023/05/22 00:49:06 by aet-tass         ###   ########.fr       */
+/*   Created: 2023/05/22 01:15:56 by aet-tass          #+#    #+#             */
+/*   Updated: 2023/05/22 01:16:14 by aet-tass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	sa(t_list **lst, int check)
+void	swap(int *xp, int *yp)
 {
-	t_list	*tmp;
+	int	temp;
 
-	if (*lst && (*lst)->next)
+	temp = *xp;
+	*xp = *yp;
+	*yp = temp;
+}
+
+int	*sort_arr(int *arr, int n)
+{
+	int	i;
+	int	j;
+	int	sorted;
+
+	i = 0;
+	j = 0;
+	sorted = 0;
+	while (i < n - 1)
 	{
-		tmp = (*lst)->next;
-		(*lst)->next = tmp->next;
-		tmp->next = *lst;
-		*lst = tmp;
+		j = 0;
+		while (j < n - i - 1)
+		{
+			if (arr[j] > arr[j + 1])
+			{
+				swap(&arr[j], &arr[j + 1]);
+				sorted = 1;
+			}
+			j++;
+		}
+		if (sorted == 0)
+			break ;
+		i++;
 	}
-	if (check != 0)
-		write(1, "sa\n", 3);
-}
-
-void	sb(t_list **lst, int check)
-{
-	sa(lst, 0);
-	if (check != 0)
-		write(1, "sb\n", 3);
-}
-
-void	ss(t_list **lst_a, t_list **lst_b, int check)
-{
-	sa(lst_a, 0);
-	sa(lst_b, 0);
-	if (check != 0)
-		write(1, "ss", 3);
+	return (arr);
 }

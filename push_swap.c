@@ -6,108 +6,86 @@
 /*   By: aet-tass <aet-tass@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/09 22:05:36 by aet-tass          #+#    #+#             */
-/*   Updated: 2023/05/22 00:39:39 by aet-tass         ###   ########.fr       */
+/*   Updated: 2023/05/22 01:17:43 by aet-tass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	swap(int *xp, int *yp)
+int *create_sorted_array(t_list *lst_a)
 {
-	int	temp;
+    int *sorted_arr = (int *)malloc(sizeof(int) * ft_lstsize(lst_a));
+    if (sorted_arr == NULL)
+    {
+        ft_putstr_fd("Memory allocation failed\n", 2);
+        return NULL;
+    }
 
-	temp = *xp;
-	*xp = *yp;
-	*yp = temp;
+    int i = 0;
+    t_list *current = lst_a;
+
+    while (current != NULL)
+    {
+        sorted_arr[i] = *(int *)(current->content);
+        current = current->next;
+        i++;
+    }
+
+    return sorted_arr;
 }
 
-int	*sort_arr(int *arr, int n)
+void perform_specific_sorting(t_list **lst_a, t_list **lst_b, int *sorted_arr)
 {
-	int	i;
-	int	j;
-	int	sorted;
+    int lst_size = ft_lstsize(*lst_a);
 
-	i = 0;
-	j = 0;
-	sorted = 0;
-	while (i < n - 1)
-	{
-		j = 0;
-		while (j < n - i - 1)
-		{
-			if (arr[j] > arr[j + 1])
-			{
-				swap(&arr[j], &arr[j + 1]);
-				sorted = 1;
-			}
-			j++;
-		}
-		if (sorted == 0)
-			break ;
-		i++;
-	}
-	return (arr);
+    if (lst_size <= 3)
+        sort_small(lst_a);
+    else if (lst_size <= 5)
+        sort_five(lst_a, lst_b);
+    else if (lst_size <= 100)
+        sort_range(lst_a, lst_b, 17, sorted_arr, lst_size);
+    else if (lst_size <= 500)
+        sort_range(lst_a, lst_b, 35, sorted_arr, lst_size);
 }
 
-int	main(int argc, char **argv)
+void free_lists(t_list **lst_a, t_list **lst_b)
 {
-	t_list	*lst_a;
-	t_list	*lst_b;
-	int		*sorted_arr;
-	char	*str;
-	char	**spt;
-	int		i;
-	int		num;
-	void	*num_ptr;
+    ft_lstclear(lst_a);
+    ft_lstclear(lst_b);
+}
 
-	lst_a = NULL;
-	lst_b = NULL;
-	i = 1;
-	str = ft_strdup("");
-	if (argc >= 2)
-	{
-		while (i < argc)
-		{
-			str = ft_strjoin(str, argv[i]);
-			str = ft_strjoin(str, " ");
-			i++;
-		}
-		spt = ft_split(str, ' ');
-		i = 0;
-		while (spt[i])
-		{
-			num = ft_atoi(spt[i]);
-			num_ptr = (void *)malloc(sizeof(int));
-			*(int *)num_ptr = num;
-			ft_lstadd_back(&lst_a, ft_lstnew(num_ptr));
-			i++;
-		}
-		if (check_duplicates(lst_a) == 1)
-		{
-			ft_putstr_fd("Error\n", 2);
-			return (1);
-		}
-		else if (is_sorted(lst_a) == 1)
-			return (1);
-		sorted_arr = (int *)malloc(sizeof(int) * ft_lstsize(lst_a));
-		for (int i = 0; i < ft_lstsize(lst_a); i++)
-			sorted_arr[i] = ft_atoi(argv[i + 1]);
-		sorted_arr = sort_arr(sorted_arr, ft_lstsize(lst_a));
-		if (ft_lstsize(lst_a) <= 3)
-			sort_small(&lst_a);
-		else if (ft_lstsize(lst_a) <= 5)
-		{
-			sort_five(&lst_a, &lst_b);
-		}
-		else if (ft_lstsize(lst_a) <= 100)
-			sort_range(&lst_a, &lst_b, 17, sorted_arr, ft_lstsize(lst_a));
-		else if (ft_lstsize(lst_a) <= 500)
-			sort_range(&lst_a, &lst_b, 35, sorted_arr, ft_lstsize(lst_a));
-	}
-	else
-		return (1);
-	// lst_my_print(lst_a);
-	ft_lstclear(&lst_a);
-	ft_lstclear(&lst_b);
-	return (0);
+int perform_sorting(t_list *lst_a)
+{
+    t_list *lst_b = NULL;
+    int *sorted_arr = create_sorted_array(lst_a);
+
+    if (sorted_arr == NULL)
+        return 1;
+
+    perform_specific_sorting(&lst_a, &lst_b, sorted_arr);
+    free_lists(&lst_a, &lst_b);
+
+    return 0;
+}
+
+
+int main(int argc, char **argv)
+{
+    t_list *lst_a;
+
+    lst_a = parse_arguments(argc, argv);
+
+    if (lst_a == NULL)
+        return 1;
+
+    if (check_duplicates(lst_a) == 1)
+    {
+        ft_putstr_fd("Error\n", 2);
+        return 1;
+    }
+
+    if (is_sorted(lst_a) == 1)
+        return 1;
+
+    return perform_sorting(lst_a);
 }
