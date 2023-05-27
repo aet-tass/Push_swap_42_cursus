@@ -6,7 +6,7 @@
 /*   By: aet-tass <aet-tass@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/07 19:32:02 by aet-tass          #+#    #+#             */
-/*   Updated: 2023/05/27 17:23:20 by aet-tass         ###   ########.fr       */
+/*   Updated: 2023/05/27 21:09:37 by aet-tass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,6 @@ void	sort_five(t_list **lst_a, t_list **lst_b);
 void	sort_range(t_list **lst_a, t_list **lst_b, int end_rge, int *srtd_arr);
 t_list	*parse_arguments(int argc, char **argv);
 int		find_index(int *arr, int size, int num);
-void	ft_cmp(t_list *lst_a, t_list *lst_b, char *line);
+
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: aet-tass <aet-tass@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/09 22:05:36 by aet-tass          #+#    #+#             */
-/*   Updated: 2023/05/25 23:28:39 by aet-tass         ###   ########.fr       */
+/*   Updated: 2023/05/27 21:09:52 by aet-tass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,6 +89,6 @@ int	main(int argc, char **argv)
 		return (1);
 	}
 	if (is_sorted(lst_a) == 1)
-		return (1);
+		return (0);
 	return (perform_sorting(lst_a));
 }
