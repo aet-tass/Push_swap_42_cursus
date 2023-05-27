@@ -1,19 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   push_swap_bonus.h                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aet-tass <aet-tass@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/07 19:32:02 by aet-tass          #+#    #+#             */
-/*   Updated: 2023/05/27 17:23:20 by aet-tass         ###   ########.fr       */
+/*   Created: 2023/05/25 21:33:55 by aet-tass          #+#    #+#             */
+/*   Updated: 2023/05/25 22:58:03 by aet-tass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#ifndef PUSH_SWAP_BONUS_H
+# define PUSH_SWAP_BONUS_H
 
+# include <limits.h>
+# include <fcntl.h>
 # include "libft/libft.h"
+
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 10
+# endif
 
 void	sa(t_list **lst, int check);
 void	sb(t_list **lst, int check);
@@ -28,11 +34,8 @@ void	pb(t_list **lst_a, t_list **lst_b, int check);
 void	rra(t_list **lst, int check);
 void	rrb(t_list **lst, int check);
 void	rrr(t_list **lst_a, t_list **lst_b, int check);
-void	sort_small(t_list **lst);
-void	sort_five(t_list **lst_a, t_list **lst_b);
-void	sort_range(t_list **lst_a, t_list **lst_b, int end_rge, int *srtd_arr);
 t_list	*parse_arguments(int argc, char **argv);
-int		find_index(int *arr, int size, int num);
-void	ft_cmp(t_list *lst_a, t_list *lst_b, char *line);
+void	ft_cmp(t_list **lst_a, t_list **lst_b, char *line);
+char	*get_next_line(int fd);
 
 #endif

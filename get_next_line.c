@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line_bonus.c                              :+:      :+:    :+:   */
+/*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aet-tass <aet-tass@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: aet-tass <aet-tass@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/14 08:19:19 by aet-tass          #+#    #+#             */
-/*   Updated: 2023/01/22 22:46:15 by aet-tass         ###   ########.fr       */
+/*   Created: 2023/01/09 21:15:03 by aet-tass          #+#    #+#             */
+/*   Updated: 2023/05/25 21:49:53 by aet-tass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line_bonus.h"
+#include "push_swap_bonus.h"
 
 void	ft_check_read(char *buffer, char *saved)
 {
@@ -108,15 +108,15 @@ char	*ft_get_rest(char *buffer)
 
 char	*get_next_line(int fd)
 {
-	static char	*buffer[OPEN_MAX];
+	static char	*buffer;
 	char		*line;
 
 	if (fd < 0 || fd == 1 || fd == 2 || BUFFER_SIZE <= 0)
 		return (NULL);
-	buffer[fd] = ft_get_saved(fd, buffer[fd]);
-	if (!buffer[fd])
+	buffer = ft_get_saved(fd, buffer);
+	if (!buffer)
 		return (NULL);
-	line = ft_get_line(buffer[fd]);
-	buffer[fd] = ft_get_rest(buffer[fd]);
+	line = ft_get_line(buffer);
+	buffer = ft_get_rest(buffer);
 	return (line);
 }
