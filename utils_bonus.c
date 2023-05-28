@@ -6,7 +6,7 @@
 /*   By: aet-tass <aet-tass@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/25 21:20:24 by aet-tass          #+#    #+#             */
-/*   Updated: 2023/05/25 23:04:55 by aet-tass         ###   ########.fr       */
+/*   Updated: 2023/05/27 21:31:56 by aet-tass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,6 @@ int	check_duplicates(t_list *head)
 	}
 	return (0);
 }
-
 int	is_sorted(t_list *head)
 {
 	t_list	*current;
@@ -43,12 +42,14 @@ int	is_sorted(t_list *head)
 	int		curr_val;
 
 	current = head;
-	prev_val = 0;
+	prev_val = INT_MIN;
 	while (current)
 	{
 		curr_val = *((int *)current->content);
 		if (curr_val < prev_val)
+		{
 			return (0);
+		}
 		prev_val = curr_val;
 		current = current->next;
 	}

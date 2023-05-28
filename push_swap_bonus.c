@@ -6,7 +6,7 @@
 /*   By: aet-tass <aet-tass@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/25 21:23:30 by aet-tass          #+#    #+#             */
-/*   Updated: 2023/05/25 22:55:34 by aet-tass         ###   ########.fr       */
+/*   Updated: 2023/05/27 21:35:06 by aet-tass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,8 +85,6 @@ int	main(int argc, char **argv)
 
 	lst_b = NULL;
 	lst_a = parse_arguments(argc, argv);
-	if (lst_a == NULL)
-		return (1);
 	if (check_duplicates(lst_a) == 1)
 	{
 		ft_putstr_fd("Error\n", 2);

@@ -6,33 +6,21 @@
 /*   By: aet-tass <aet-tass@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/09 22:05:36 by aet-tass          #+#    #+#             */
-/*   Updated: 2023/05/27 21:09:52 by aet-tass         ###   ########.fr       */
+/*   Updated: 2023/05/28 01:08:17 by aet-tass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	*create_sorted_array(t_list *lst_a)
+int    *sort_quick(t_list *stack)
 {
-	t_list	*current;
-	int		*sorted_arr;
-	int		i;
+    int    *copy;
 
-	sorted_arr = (int *)malloc(sizeof(int) * ft_lstsize(lst_a));
-	if (sorted_arr == NULL)
-	{
-		ft_putstr_fd("Memory allocation failed\n", 2);
-		return (NULL);
-	}
-	i = 0;
-	current = lst_a;
-	while (current != NULL)
-	{
-		sorted_arr[i] = *(int *)(current->content);
-		current = current->next;
-		i++;
-	}
-	return (sorted_arr);
+    copy = create_sorted_array(stack);
+    if (!copy)
+        return (NULL);
+    quicksort(copy, 0, ft_lstsize(stack) - 1);
+    return (copy);
 }
 
 void	perform_sort(t_list **lst_a, t_list **lst_b, int *sorted_arr)
@@ -67,7 +55,7 @@ int	perform_sorting(t_list *lst_a)
 	int		*sorted_arr;
 
 	lst_b = NULL;
-	sorted_arr = create_sorted_array(lst_a);
+	sorted_arr = sort_quick(lst_a);
 	if (sorted_arr == NULL)
 		return (1);
 	perform_sort(&lst_a, &lst_b, sorted_arr);

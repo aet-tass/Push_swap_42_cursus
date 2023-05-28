@@ -1,11 +1,11 @@
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS =
 
 CC = gcc
 
 RM = rm -rf
 
 SRC = push_swap.c check_arg.c s_stack.c \
- p_stack.c sort_small_stack.c rr_stack.c r_stack.c sort_five.c sort_range.c utils_2.c  utils_1.c
+ p_stack.c sort_small_stack.c rr_stack.c r_stack.c sort_five.c sort_range.c utils_2.c  utils_1.c quick_sort.c
 
 SRCB = push_swap_bonus.c utils_bonus.c \
  utils_3_bonus.c utils_2_bonus.c  utils_1_bonus.c get_next_line.c
@@ -21,11 +21,11 @@ compile:
 	@make -C libft
 
 push_swap: $(OBJ) $(compile)
-		$(CC) $(CFLAGS) $(OBJ) libft/libft.a -o push_swap
+	$(CC) $(CFLAGS) $(OBJ) libft/libft.a -o push_swap
 
 
 checker: $(OBJB) $(compile)
-		$(CC) $(CFLAGS) $(OBJB) libft/libft.a -o checker
+	$(CC) $(CFLAGS) $(OBJB) libft/libft.a -o checker
 
 clean:
 	@make clean -C libft

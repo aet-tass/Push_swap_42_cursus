@@ -6,7 +6,7 @@
 /*   By: aet-tass <aet-tass@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/22 00:49:43 by aet-tass          #+#    #+#             */
-/*   Updated: 2023/05/27 21:09:25 by aet-tass         ###   ########.fr       */
+/*   Updated: 2023/05/28 01:08:44 by aet-tass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,7 +89,7 @@ void	sort_range(t_list **lst_a, t_list **lst_b, int end_rge, int *srtd_arr)
 		index = find_index(srtd_arr, size, top);
 		if (index >= intr[0] && index <= intr[1])
 			push_elements(lst_a, lst_b, &intr[0], &intr[1]);
-		else if (index > intr[1])
+	 	else if (index > intr[1])
 			ra(lst_a, 1);
 		else if (index < intr[0])
 		{
